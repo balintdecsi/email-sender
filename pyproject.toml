@@ -1,0 +1,13 @@
+[tool.poetry]
+name = "email-sender"
+description = "Send custom emails to a number of receiver addresses. I used this code for a family christmas Gartic Phone game."
+authors = ["balintdecsi <balint.decsi@gmail.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
