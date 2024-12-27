@@ -2,6 +2,7 @@ from dotenv import dotenv_values
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+import random
 
 env = dotenv_values(".env")
 
@@ -27,5 +28,11 @@ if __name__ == "__main__":
     subject = "Christmas Party"
     body = "This is a test"
     to_addresses = env["RECIPIENTS"].split(",")
-
-    send_email(subject, body, to_addresses)
+    
+    with open("starting_phrases.txt", "r") as file:
+        lines = iter(file.readlines())
+    
+# Pop a random address from `to_addresses` and send the phrase to that address
+while to_addresses:
+    to_address = to_addresses.pop(random.randint(0, len(to_addresses) - 1))
+    send_email(subject, next(lines).strip(), [to_address])
