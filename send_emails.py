@@ -32,7 +32,7 @@ if __name__ == "__main__":
     with open("starting_phrases.txt", "r") as file:
         lines = iter(file.readlines())
     
-# Pop a random address from `to_addresses` and send the phrase to that address
-while to_addresses:
-    to_address = to_addresses.pop(random.randint(0, len(to_addresses) - 1))
-    send_email(subject, next(lines).strip(), [to_address])
+    # Pop a random address from `to_addresses` and send the phrase to that address
+    while to_addresses:
+        to_address = to_addresses.pop(random.randint(0, len(to_addresses) - 1))
+        send_email(subject, next(lines).strip(), [to_address])
